@@ -1,0 +1,31 @@
+services:
+    poll.results:
+        class: Progrupa\PollBundle\Service\Results
+        arguments: ["@doctrine.orm.entity_manager"]
+
+    poll.result_formatter:
+        class: Progrupa\PollBundle\Formatter\ResultsFormatter
+        arguments:
+            - '@translator'
+            - ['@poll.plain_formatter', '@poll.yesno_formatter', '@poll.closed_formatter']
+
+    poll.plain_formatter:
+        class: Progrupa\PollBundle\Formatter\PlainFormatter
+
+    poll.yesno_formatter:
+        class: Progrupa\PollBundle\Formatter\YesNoFormatter
+        arguments:
+            - '@translator'
+
+    poll.closed_formatter:
+        class: Progrupa\PollBundle\Formatter\ClosedFormatter
+        arguments:
+            - '@=service("doctrine.orm.entity_manager").getRepository("Progrupa\\PollBundle\\Model\\PollOption")'
+            - '@translator'
+
+    pool.twig.poll_extension:
+        class: Progrupa\PollBundle\Twig\PollExtension
+        arguments: ["@poll.result_formatter"]
+        tags:
+            - { name: twig.extension }
+
