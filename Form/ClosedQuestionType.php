@@ -8,6 +8,7 @@ use Progrupa\PollBundle\Entity\ClosedQuestion;
 use Progrupa\PollBundle\Entity\PollAnswer;
 use Progrupa\PollBundle\Entity\PollOption;
 use Progrupa\PollBundle\Entity\PollQuestion;
+use Progrupa\PollBundle\Interfaces\PollElement;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\OptionsResolver\OptionsResolver;

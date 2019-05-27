@@ -6,6 +6,7 @@ namespace Progrupa\PollBundle\Form;
 use Progrupa\PollBundle\Entity\OpenAnswer;
 use Progrupa\PollBundle\Entity\PollAnswer;
 use Progrupa\PollBundle\Entity\PollQuestion;
+use Progrupa\PollBundle\Interfaces\PollElement;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
