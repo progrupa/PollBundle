@@ -12,8 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\DiscriminatorMap({
  *      OpenQuestion::DISCR = "OpenAnswer",
  *      ClosedQuestion::DISCR = "ClosedAnswer",
- *      YesNoQuestion::DISCR = "YesNoAnswer",
- *      BusinessProfileQuestion::DISCR = "BusinessProfileAnswer"
+ *      YesNoQuestion::DISCR = "YesNoAnswer"
  *     })
  */
 abstract class PollAnswer

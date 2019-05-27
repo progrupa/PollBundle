@@ -3,8 +3,6 @@
 namespace Progrupa\PollBundle\Form;
 
 
-use Progrupa\PollBundle\Entity\BusinessProfileAnswer;
-use Progrupa\PollBundle\Entity\BusinessProfileQuestion;
 use Progrupa\PollBundle\Entity\ClosedAnswer;
 use Progrupa\PollBundle\Entity\ClosedQuestion;
 use Progrupa\PollBundle\Entity\OpenAnswer;
@@ -25,8 +23,7 @@ class PollType extends AbstractType
     private $typeMap = [
         YesNoQuestion::class    =>  YesNoQuestionType::class,
         ClosedQuestion::class   =>  ClosedQuestionType::class,
-        OpenQuestion::class     =>  OpenQuestionType::class,
-        BusinessProfileQuestion::class =>  BusinessProfileQuestionType::class,
+        OpenQuestion::class     =>  OpenQuestionType::class
     ];
 
     public function buildForm(FormBuilderInterface $builder, array $options)
