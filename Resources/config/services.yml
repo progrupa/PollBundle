@@ -20,7 +20,7 @@ services:
     poll.closed_formatter:
         class: Progrupa\PollBundle\Formatter\ClosedFormatter
         arguments:
-            - '@=service("doctrine.orm.entity_manager").getRepository("Progrupa\\PollBundle\\Model\\PollOption")'
+            - '@=service("doctrine.orm.entity_manager").getRepository("Progrupa\\PollBundle\\Entity\\PollOption")'
             - '@translator'
 
     pool.twig.poll_extension:

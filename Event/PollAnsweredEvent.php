@@ -3,8 +3,8 @@
 namespace Progrupa\PollBundle\Event;
 
 
-use Progrupa\PollBundle\Model\Poll;
-use Progrupa\PollBundle\Model\PollAnswer;
+use Progrupa\PollBundle\Entity\Poll;
+use Progrupa\PollBundle\Entity\PollAnswer;
 use Symfony\Component\EventDispatcher\Event;
 
 class PollAnsweredEvent extends Event

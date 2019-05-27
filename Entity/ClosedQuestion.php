@@ -1,6 +1,6 @@
 <?php
 
-namespace Progrupa\PollBundle\Model;
+namespace Progrupa\PollBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -12,7 +12,7 @@ class ClosedQuestion extends PollQuestion
     const DISCR = 'closed';
 
     /**
-     * @ORM\OneToMany(targetEntity="Progrupa\PollBundle\Model\PollOption", mappedBy="question")
+     * @ORM\OneToMany(targetEntity="Progrupa\PollBundle\Entity\PollOption", mappedBy="question")
      */
     private $options;
     /**
@@ -89,11 +89,11 @@ class ClosedQuestion extends PollQuestion
     /**
      * Add option
      *
-     * @param \Progrupa\PollBundle\Model\PollOption $option
+     * @param \Progrupa\PollBundle\Entity\PollOption $option
      *
      * @return ClosedQuestion
      */
-    public function addOption(\Progrupa\PollBundle\Model\PollOption $option)
+    public function addOption(\Progrupa\PollBundle\Entity\PollOption $option)
     {
         $this->options[] = $option;
 
@@ -103,9 +103,9 @@ class ClosedQuestion extends PollQuestion
     /**
      * Remove option
      *
-     * @param \Progrupa\PollBundle\Model\PollOption $option
+     * @param \Progrupa\PollBundle\Entity\PollOption $option
      */
-    public function removeOption(\Progrupa\PollBundle\Model\PollOption $option)
+    public function removeOption(\Progrupa\PollBundle\Entity\PollOption $option)
     {
         $this->options->removeElement($option);
     }

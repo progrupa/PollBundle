@@ -3,7 +3,7 @@
 namespace Progrupa\PollBundle\Interfaces;
 
 
-use Progrupa\PollBundle\Model\PollAnswer;
+use Progrupa\PollBundle\Entity\PollAnswer;
 use Progrupa\PollBundle\Service\PollElementResult;
 
 interface PollElementResultFormatter

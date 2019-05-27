@@ -2,7 +2,7 @@
 
 namespace Progrupa\PollBundle\Twig;
 
-use Progrupa\PollBundle\Model\PollAnswer;
+use Progrupa\PollBundle\Entity\PollAnswer;
 
 class PollExtension extends \Twig_Extension
 {

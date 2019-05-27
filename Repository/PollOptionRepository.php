@@ -3,8 +3,8 @@
 namespace Progrupa\PollBundle\Repository;
 
 
-use Progrupa\PollBundle\Model\Poll;
-use Progrupa\PollBundle\Model\PollOption;
+use Progrupa\PollBundle\Entity\Poll;
+use Progrupa\PollBundle\Entity\PollOption;
 use Doctrine\ORM\EntityRepository;
 
 class PollOptionRepository extends EntityRepository

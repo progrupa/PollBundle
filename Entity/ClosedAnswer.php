@@ -1,6 +1,6 @@
 <?php
 
-namespace Progrupa\PollBundle\Model;
+namespace Progrupa\PollBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -12,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
 class ClosedAnswer extends PollAnswer
 {
     /**
-     * @ORM\ManyToMany(targetEntity="Progrupa\PollBundle\Model\PollOption")
+     * @ORM\ManyToMany(targetEntity="Progrupa\PollBundle\Entity\PollOption")
      * @ORM\JoinTable(name="poll_answer_poll_options",
      *     joinColumns={@ORM\JoinColumn(onDelete="CASCADE")},
      *     inverseJoinColumns={@ORM\JoinColumn(onDelete="CASCADE")}

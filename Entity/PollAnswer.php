@@ -1,6 +1,6 @@
 <?php
 
-namespace Progrupa\PollBundle\Model;
+namespace Progrupa\PollBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -25,7 +25,7 @@ abstract class PollAnswer
      */
     private $id;
     /**
-     * @ORM\ManyToOne(targetEntity="Progrupa\PollBundle\Model\PollQuestion", inversedBy="answers")
+     * @ORM\ManyToOne(targetEntity="Progrupa\PollBundle\Entity\PollQuestion", inversedBy="answers")
      * @ORM\JoinColumn(onDelete="CASCADE")
      */
     private $question;
@@ -71,11 +71,11 @@ abstract class PollAnswer
     /**
      * Set question
      *
-     * @param \Progrupa\PollBundle\Model\PollQuestion $question
+     * @param \Progrupa\PollBundle\Entity\PollQuestion $question
      *
      * @return PollAnswer
      */
-    public function setQuestion(\Progrupa\PollBundle\Model\PollQuestion $question = null)
+    public function setQuestion(\Progrupa\PollBundle\Entity\PollQuestion $question = null)
     {
         $this->question = $question;
 
@@ -85,7 +85,7 @@ abstract class PollAnswer
     /**
      * Get question
      *
-     * @return \Progrupa\PollBundle\Model\PollQuestion
+     * @return \Progrupa\PollBundle\Entity\PollQuestion
      */
     public function getQuestion()
     {

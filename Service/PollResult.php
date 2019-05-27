@@ -3,7 +3,7 @@
 namespace Progrupa\PollBundle\Service;
 
 
-use Progrupa\PollBundle\Model\Poll;
+use Progrupa\PollBundle\Entity\Poll;
 
 class PollResult
 {

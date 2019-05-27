@@ -1,6 +1,6 @@
 <?php
 
-namespace Progrupa\PollBundle\Model;
+namespace Progrupa\PollBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -31,7 +31,7 @@ class Poll
      */
     private $state;
     /**
-     * @ORM\OneToMany(targetEntity="Progrupa\PollBundle\Model\PollQuestion", mappedBy="poll")
+     * @ORM\OneToMany(targetEntity="Progrupa\PollBundle\Entity\PollQuestion", mappedBy="poll")
      */
     private $questions;
 
@@ -98,11 +98,11 @@ class Poll
     /**
      * Add question
      *
-     * @param \Progrupa\PollBundle\Model\PollQuestion $question
+     * @param \Progrupa\PollBundle\Entity\PollQuestion $question
      *
      * @return Poll
      */
-    public function addQuestion(\Progrupa\PollBundle\Model\PollQuestion $question)
+    public function addQuestion(\Progrupa\PollBundle\Entity\PollQuestion $question)
     {
         $this->questions[] = $question;
 
@@ -112,9 +112,9 @@ class Poll
     /**
      * Remove question
      *
-     * @param \Progrupa\PollBundle\Model\PollQuestion $question
+     * @param \Progrupa\PollBundle\Entity\PollQuestion $question
      */
-    public function removeQuestion(\Progrupa\PollBundle\Model\PollQuestion $question)
+    public function removeQuestion(\Progrupa\PollBundle\Entity\PollQuestion $question)
     {
         $this->questions->removeElement($question);
     }

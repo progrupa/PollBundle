@@ -3,11 +3,11 @@
 namespace Progrupa\PollBundle\Form;
 
 
-use Progrupa\PollBundle\Model\ClosedAnswer;
-use Progrupa\PollBundle\Model\ClosedQuestion;
-use Progrupa\PollBundle\Model\PollAnswer;
-use Progrupa\PollBundle\Model\PollOption;
-use Progrupa\PollBundle\Model\PollQuestion;
+use Progrupa\PollBundle\Entity\ClosedAnswer;
+use Progrupa\PollBundle\Entity\ClosedQuestion;
+use Progrupa\PollBundle\Entity\PollAnswer;
+use Progrupa\PollBundle\Entity\PollOption;
+use Progrupa\PollBundle\Entity\PollQuestion;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\OptionsResolver\OptionsResolver;

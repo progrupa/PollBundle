@@ -3,7 +3,7 @@
 namespace Progrupa\PollBundle\Formatter;
 
 use Progrupa\PollBundle\Interfaces\PollElementResultFormatter;
-use Progrupa\PollBundle\Model\PollAnswer;
+use Progrupa\PollBundle\Entity\PollAnswer;
 use Symfony\Component\Translation\TranslatorInterface;
 
 class ResultsFormatter

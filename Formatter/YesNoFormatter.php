@@ -3,9 +3,9 @@
 namespace Progrupa\PollBundle\Formatter;
 
 use Progrupa\PollBundle\Interfaces\PollElementResultFormatter;
-use Progrupa\PollBundle\Model\PollAnswer;
-use Progrupa\PollBundle\Model\YesNoAnswer;
-use Progrupa\PollBundle\Model\YesNoQuestion;
+use Progrupa\PollBundle\Entity\PollAnswer;
+use Progrupa\PollBundle\Entity\YesNoAnswer;
+use Progrupa\PollBundle\Entity\YesNoQuestion;
 use Progrupa\PollBundle\Service\PollElementResult;
 use Symfony\Component\Translation\TranslatorInterface;
 

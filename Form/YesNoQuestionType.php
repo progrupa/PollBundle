@@ -3,9 +3,9 @@
 namespace Progrupa\PollBundle\Form;
 
 
-use Progrupa\PollBundle\Model\PollAnswer;
-use Progrupa\PollBundle\Model\PollQuestion;
-use Progrupa\PollBundle\Model\YesNoAnswer;
+use Progrupa\PollBundle\Entity\PollAnswer;
+use Progrupa\PollBundle\Entity\PollQuestion;
+use Progrupa\PollBundle\Entity\YesNoAnswer;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\OptionsResolver\OptionsResolver;

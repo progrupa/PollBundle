@@ -3,7 +3,7 @@
 namespace Progrupa\PollBundle\Interfaces;
 
 
-use Progrupa\PollBundle\Model\PollQuestion;
+use Progrupa\PollBundle\Entity\PollQuestion;
 
 interface AnswerRepository
 {

@@ -4,8 +4,8 @@ namespace Progrupa\PollBundle\Service;
 
 
 use Doctrine\ORM\EntityManagerInterface;
-use Progrupa\PollBundle\Model\Poll;
-use Progrupa\PollBundle\Model\PollQuestion;
+use Progrupa\PollBundle\Entity\Poll;
+use Progrupa\PollBundle\Entity\PollQuestion;
 
 class Results
 {

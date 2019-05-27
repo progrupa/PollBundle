@@ -5,7 +5,7 @@ namespace Progrupa\PollBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
 use Progrupa\PollBundle\Interfaces\AnswerRepository;
-use Progrupa\PollBundle\Model\PollQuestion;
+use Progrupa\PollBundle\Entity\PollQuestion;
 
 class YesNoAnswerRepository extends EntityRepository implements AnswerRepository
 {

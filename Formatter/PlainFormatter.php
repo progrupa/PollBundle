@@ -3,9 +3,9 @@
 namespace Progrupa\PollBundle\Formatter;
 
 use Progrupa\PollBundle\Interfaces\PollElementResultFormatter;
-use Progrupa\PollBundle\Model\OpenAnswer;
-use Progrupa\PollBundle\Model\OpenQuestion;
-use Progrupa\PollBundle\Model\PollAnswer;
+use Progrupa\PollBundle\Entity\OpenAnswer;
+use Progrupa\PollBundle\Entity\OpenQuestion;
+use Progrupa\PollBundle\Entity\PollAnswer;
 use Progrupa\PollBundle\Service\PollElementResult;
 
 class PlainFormatter implements PollElementResultFormatter

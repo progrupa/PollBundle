@@ -1,6 +1,6 @@
 <?php
 
-namespace Progrupa\PollBundle\Model;
+namespace Progrupa\PollBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -25,7 +25,7 @@ abstract class PollQuestion
      */
     private $id;
     /**
-     * @ORM\ManyToOne(targetEntity="Progrupa\PollBundle\Model\Poll", inversedBy="questions")
+     * @ORM\ManyToOne(targetEntity="Progrupa\PollBundle\Entity\Poll", inversedBy="questions")
      * @ORM\JoinColumn(onDelete="CASCADE")
      */
     private $poll;
@@ -46,7 +46,7 @@ abstract class PollQuestion
      */
     private $includeInOverall = true;
     /**
-     * @ORM\OneToMany(targetEntity="Progrupa\PollBundle\Model\PollAnswer", mappedBy="question")
+     * @ORM\OneToMany(targetEntity="Progrupa\PollBundle\Entity\PollAnswer", mappedBy="question")
      */
     private $answers;
 
@@ -144,11 +144,11 @@ abstract class PollQuestion
     /**
      * Set poll
      *
-     * @param \Progrupa\PollBundle\Model\Poll $poll
+     * @param \Progrupa\PollBundle\Entity\Poll $poll
      *
      * @return PollQuestion
      */
-    public function setPoll(\Progrupa\PollBundle\Model\Poll $poll = null)
+    public function setPoll(\Progrupa\PollBundle\Entity\Poll $poll = null)
     {
         $this->poll = $poll;
 
@@ -158,7 +158,7 @@ abstract class PollQuestion
     /**
      * Get poll
      *
-     * @return \Progrupa\PollBundle\Model\Poll
+     * @return \Progrupa\PollBundle\Entity\Poll
      */
     public function getPoll()
     {
@@ -199,11 +199,11 @@ abstract class PollQuestion
     /**
      * Add answer
      *
-     * @param \Progrupa\PollBundle\Model\PollAnswer $answer
+     * @param \Progrupa\PollBundle\Entity\PollAnswer $answer
      *
      * @return PollQuestion
      */
-    public function addAnswer(\Progrupa\PollBundle\Model\PollAnswer $answer)
+    public function addAnswer(\Progrupa\PollBundle\Entity\PollAnswer $answer)
     {
         $this->answers[] = $answer;
 
@@ -213,9 +213,9 @@ abstract class PollQuestion
     /**
      * Remove answer
      *
-     * @param \Progrupa\PollBundle\Model\PollAnswer $answer
+     * @param \Progrupa\PollBundle\Entity\PollAnswer $answer
      */
-    public function removeAnswer(\Progrupa\PollBundle\Model\PollAnswer $answer)
+    public function removeAnswer(\Progrupa\PollBundle\Entity\PollAnswer $answer)
     {
         $this->answers->removeElement($answer);
     }

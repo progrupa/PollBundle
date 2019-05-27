@@ -4,8 +4,8 @@ namespace Progrupa\PollBundle\Repository;
 
 
 use Doctrine\ORM\EntityRepository;
-use Progrupa\PollBundle\Model\Poll;
-use Progrupa\PollBundle\Model\PollAnswer;
+use Progrupa\PollBundle\Entity\Poll;
+use Progrupa\PollBundle\Entity\PollAnswer;
 
 class PollAnswerRepository extends EntityRepository
 {

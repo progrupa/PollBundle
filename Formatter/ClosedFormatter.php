@@ -3,11 +3,11 @@
 namespace Progrupa\PollBundle\Formatter;
 
 use Progrupa\PollBundle\Interfaces\PollElementResultFormatter;
-use Progrupa\PollBundle\Model\ClosedAnswer;
-use Progrupa\PollBundle\Model\ClosedQuestion;
-use Progrupa\PollBundle\Model\Poll;
-use Progrupa\PollBundle\Model\PollAnswer;
-use Progrupa\PollBundle\Model\PollOption;
+use Progrupa\PollBundle\Entity\ClosedAnswer;
+use Progrupa\PollBundle\Entity\ClosedQuestion;
+use Progrupa\PollBundle\Entity\Poll;
+use Progrupa\PollBundle\Entity\PollAnswer;
+use Progrupa\PollBundle\Entity\PollOption;
 
 use Symfony\Component\Translation\TranslatorInterface;
 

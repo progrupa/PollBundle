@@ -3,9 +3,9 @@
 namespace Progrupa\PollBundle\Form;
 
 
-use Progrupa\PollBundle\Model\OpenAnswer;
-use Progrupa\PollBundle\Model\PollAnswer;
-use Progrupa\PollBundle\Model\PollQuestion;
+use Progrupa\PollBundle\Entity\OpenAnswer;
+use Progrupa\PollBundle\Entity\PollAnswer;
+use Progrupa\PollBundle\Entity\PollQuestion;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 

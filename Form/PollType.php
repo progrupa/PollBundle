@@ -3,17 +3,17 @@
 namespace Progrupa\PollBundle\Form;
 
 
-use Progrupa\PollBundle\Model\BusinessProfileAnswer;
-use Progrupa\PollBundle\Model\BusinessProfileQuestion;
-use Progrupa\PollBundle\Model\ClosedAnswer;
-use Progrupa\PollBundle\Model\ClosedQuestion;
-use Progrupa\PollBundle\Model\OpenAnswer;
-use Progrupa\PollBundle\Model\OpenQuestion;
-use Progrupa\PollBundle\Model\Poll;
-use Progrupa\PollBundle\Model\PollAnswer;
-use Progrupa\PollBundle\Model\PollQuestion;
-use Progrupa\PollBundle\Model\YesNoAnswer;
-use Progrupa\PollBundle\Model\YesNoQuestion;
+use Progrupa\PollBundle\Entity\BusinessProfileAnswer;
+use Progrupa\PollBundle\Entity\BusinessProfileQuestion;
+use Progrupa\PollBundle\Entity\ClosedAnswer;
+use Progrupa\PollBundle\Entity\ClosedQuestion;
+use Progrupa\PollBundle\Entity\OpenAnswer;
+use Progrupa\PollBundle\Entity\OpenQuestion;
+use Progrupa\PollBundle\Entity\Poll;
+use Progrupa\PollBundle\Entity\PollAnswer;
+use Progrupa\PollBundle\Entity\PollQuestion;
+use Progrupa\PollBundle\Entity\YesNoAnswer;
+use Progrupa\PollBundle\Entity\YesNoQuestion;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
