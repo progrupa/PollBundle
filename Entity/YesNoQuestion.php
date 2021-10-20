@@ -15,4 +15,9 @@ class YesNoQuestion extends PollQuestion
     {
         return YesNoAnswer::class;
     }
+
+    public function getType()
+    {
+        return $this::DISCR;
+    }
 }

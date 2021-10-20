@@ -119,4 +119,16 @@ class PollOption
     {
         return $this->question;
     }
+
+
+    /**
+     * @return $this
+     */
+    public function __clone()
+    {
+        $this->id = null;
+        $this->question = null;
+
+        return $this;
+    }
 }

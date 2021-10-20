@@ -87,6 +87,17 @@ class ClosedQuestion extends PollQuestion
     }
 
     /**
+     *
+     * @return ClosedQuestion
+     */
+    public function clearOptions()
+    {
+        $this->options = [];
+
+        return $this;
+    }
+
+    /**
      * Add option
      *
      * @param \Progrupa\PollBundle\Entity\PollOption $option
@@ -118,5 +129,10 @@ class ClosedQuestion extends PollQuestion
     public function getOptions()
     {
         return $this->options;
+    }
+
+    public function getType()
+    {
+        return $this::DISCR;
     }
 }

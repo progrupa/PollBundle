@@ -4,6 +4,7 @@ namespace Progrupa\PollBundle\Formatter;
 
 use Progrupa\PollBundle\Interfaces\PollElementResultFormatter;
 use Progrupa\PollBundle\Entity\PollAnswer;
+use Progrupa\PollBundle\Service\PollResult;
 use Symfony\Component\Translation\TranslatorInterface;
 
 class ResultsFormatter

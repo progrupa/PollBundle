@@ -15,4 +15,9 @@ class OpenQuestion extends PollQuestion
     {
         return OpenAnswer::class;
     }
+
+    public function getType()
+    {
+        return $this::DISCR;
+    }
 }

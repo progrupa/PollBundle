@@ -9,6 +9,8 @@ use Progrupa\PollBundle\Entity\Poll;
 use Progrupa\PollBundle\Entity\PollAnswer;
 use Progrupa\PollBundle\Entity\PollOption;
 
+use Progrupa\PollBundle\Repository\PollOptionRepository;
+use Progrupa\PollBundle\Service\PollElementResult;
 use Symfony\Component\Translation\TranslatorInterface;
 
 class ClosedFormatter implements PollElementResultFormatter
@@ -34,6 +36,10 @@ class ClosedFormatter implements PollElementResultFormatter
         $this->translator = $translator;
     }
 
+    /**
+     * @param PollElementResult $elementResult
+     * @return array
+     */
     public function format(PollElementResult $elementResult)
     {
         $this->ensureOptions($elementResult->getQuestion()->getPoll());
@@ -57,7 +63,7 @@ class ClosedFormatter implements PollElementResultFormatter
 
     /**
      * @param PollAnswer $answer
-     * @return mixed|void
+     * @return mixed
      */
     public function formatAnswer(PollAnswer $answer)
     {
@@ -79,6 +85,9 @@ class ClosedFormatter implements PollElementResultFormatter
         }
     }
 
+    /**
+     * @return array|string[]
+     */
     public function supportedQuestions()
     {
         return [ClosedQuestion::class];

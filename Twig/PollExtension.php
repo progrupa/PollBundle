@@ -3,6 +3,7 @@
 namespace Progrupa\PollBundle\Twig;
 
 use Progrupa\PollBundle\Entity\PollAnswer;
+use Progrupa\PollBundle\Formatter\ResultsFormatter;
 
 class PollExtension extends \Twig_Extension
 {

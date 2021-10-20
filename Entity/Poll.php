@@ -25,15 +25,54 @@ class Poll
      * @ORM\Column(type="string", length=64)
      */
     private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="hash", type="text", nullable=true)
+     */
+    private $hash;
+
+    /**
+     * @var string
+     * @ORM\Column(name="title", type="text", nullable=true)
+     */
+    private $title;
+
+    /**
+     * @var string
+     * @ORM\Column(name="description", type="text", nullable=true)
+     */
+    private $description;
+
     /**
      * @var string
      * @ORM\Column(type="string", length=64)
      */
     private $state;
+
     /**
      * @ORM\OneToMany(targetEntity="Progrupa\PollBundle\Entity\PollQuestion", mappedBy="poll")
      */
     private $questions;
+
+    /**
+     * @var boolean
+     * @ORM\Column(type="boolean", nullable=false, options={"default":1})
+     */
+    private $anonymous = true;
+
+    /**
+     * @var \DateTime
+     * @ORM\Column(name="created_at", type="datetimetz", nullable=true)
+     */
+    private $createdAt;
+
+    /**
+     * @var \DateTime
+     * @ORM\Column(name="modified_at", type="datetimetz", nullable=true)
+     */
+    private $modifiedAt;
 
     /**
      * Constructor
@@ -75,6 +114,66 @@ class Poll
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * @param string $hash
+     */
+    public function setHash($hash)
+    {
+        $this->hash = $hash;
+    }
+
+    /**
+     * @return string
+     */
+    public function getHash()
+    {
+        return $this->hash;
+    }
+
+    /**
+     * @return string
+     */
+    public function generateHash()
+    {
+        $now = new \DateTime();
+
+        $this->hash = hash('ripemd128', uniqid() . $this->getName() . $now->format('Ymd_His'));
+
+        return $this->hash;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * @param string $title
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param string $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
     }
 
     /**
@@ -127,5 +226,53 @@ class Poll
     public function getQuestions()
     {
         return $this->questions;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isAnonymous()
+    {
+        return $this->anonymous;
+    }
+
+    /**
+     * @param bool $anonymous
+     */
+    public function setAnonymous($anonymous)
+    {
+        $this->anonymous = $anonymous;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * @param mixed $createdAt
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getModifiedAt()
+    {
+        return $this->modifiedAt;
+    }
+
+    /**
+     * @param \DateTime $modifiedAt
+     */
+    public function setModifiedAt($modifiedAt)
+    {
+        $this->modifiedAt = $modifiedAt;
     }
 }

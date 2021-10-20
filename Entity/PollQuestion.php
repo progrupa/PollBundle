@@ -48,6 +48,15 @@ abstract class PollQuestion
      * @ORM\OneToMany(targetEntity="Progrupa\PollBundle\Entity\PollAnswer", mappedBy="question")
      */
     private $answers;
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $section;
+    /**
+     * @var integer
+     * @ORM\Column(name="position", type="integer", nullable=false, options={"default":0})
+     */
+    private $position = 0;
 
     /**
      * @return string Class name of the answer
@@ -227,5 +236,51 @@ abstract class PollQuestion
     public function getAnswers()
     {
         return $this->answers;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSection()
+    {
+        return $this->section;
+    }
+
+    /**
+     * @param mixed $section
+     */
+    public function setSection($section)
+    {
+        $this->section = $section;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPosition()
+    {
+        return $this->position;
+    }
+
+    /**
+     * @param int $position
+     */
+    public function setPosition($position)
+    {
+        $this->position = $position;
+    }
+
+    abstract function getType();
+
+    /**
+     * @return $this
+     */
+    public function __clone()
+    {
+        $this->id = null;
+        $this->poll = null;
+        $this->answers = new \Doctrine\Common\Collections\ArrayCollection();
+
+        return $this;
     }
 }
