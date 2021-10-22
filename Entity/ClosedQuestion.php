@@ -22,6 +22,10 @@ class ClosedQuestion extends PollQuestion
     /**
      * @ORM\Column(type="boolean")
      */
+    private $scale;
+    /**
+     * @ORM\Column(type="boolean")
+     */
     private $expanded;
 
     public static function answerClass()
@@ -84,6 +88,22 @@ class ClosedQuestion extends PollQuestion
     public function getExpanded()
     {
         return $this->expanded;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getScale()
+    {
+        return $this->scale;
+    }
+
+    /**
+     * @param boolean $scale
+     */
+    public function setScale($scale)
+    {
+        $this->scale = $scale;
     }
 
     /**
