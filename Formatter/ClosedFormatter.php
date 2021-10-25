@@ -2,6 +2,7 @@
 
 namespace Progrupa\PollBundle\Formatter;
 
+use Progrupa\PollBundle\Entity\ClosedAnswerOption;
 use Progrupa\PollBundle\Interfaces\PollElementResultFormatter;
 use Progrupa\PollBundle\Entity\ClosedAnswer;
 use Progrupa\PollBundle\Entity\ClosedQuestion;
@@ -73,15 +74,37 @@ class ClosedFormatter implements PollElementResultFormatter
 
         if ($answer->getQuestion()->getMultiple()) {
             $answers = [];
-            foreach ($answer->getOptions() as $option) {
-                $answers[] = $this->translator->trans($option->getLabel());
+
+            /** @var ClosedAnswerOption $answerOption */
+            foreach ($answer->getAnswerOptions() as $answerOption) {
+                $option = $answerOption->getOption();
+
+                $_answer = $this->translator->trans($answerOption->getOption()->getLabel());
+                if ($option->isOpen()) {
+                    $_answer .= ' ('.$answerOption->getOpenText().')';
+                }
+
+                $answers[] = $_answer;
             }
 
             return $answers;
 
         } else {
-            $option = $answer->getOptions()->first();
-            return $option ? $this->translator->trans($option->getLabel()) : null;
+            /** @var ClosedAnswerOption $answerOption */
+            $answerOption = $answer->getAnswerOptions()->first();
+
+            if (!$answerOption) {
+                return null;
+            }
+
+            $option = $answerOption->getOption();
+
+            $_answer = $this->translator->trans($answerOption->getOption()->getLabel());
+            if ($option->isOpen()) {
+                $_answer .= ' ('.$answerOption->getOpenText().')';
+            }
+
+            return $_answer;
         }
     }
 

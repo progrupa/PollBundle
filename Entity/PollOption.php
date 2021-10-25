@@ -16,11 +16,20 @@ class PollOption
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+
     /**
      * @ORM\ManyToOne(targetEntity="Progrupa\PollBundle\Entity\ClosedQuestion", inversedBy="options")
      * @ORM\JoinColumn(onDelete="CASCADE")
      */
     private $question;
+
+    /**
+     * @var Collection
+     *
+     * @ORM\OneToMany(targetEntity="ClosedAnswerOption", mappedBy="option", cascade={"persist", "remove"})
+     */
+    private $optionAnswers;
+
     /**
      * @ORM\Column(type="text")
      */
@@ -29,13 +38,17 @@ class PollOption
      * @ORM\Column(type="float", nullable=true)
      */
     private $value;
-
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $open;
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->poll = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->poll = new ArrayCollection();
+        $this->optionAnswers = new ArrayCollection();
     }
 
     /**
@@ -97,13 +110,29 @@ class PollOption
     }
 
     /**
+     * @return boolean
+     */
+    public function isOpen()
+    {
+        return $this->open;
+    }
+
+    /**
+     * @param boolean $open
+     */
+    public function setOpen($open)
+    {
+        $this->open = $open;
+    }
+
+    /**
      * Set question
      *
-     * @param \Progrupa\PollBundle\Entity\ClosedQuestion $question
+     * @param ClosedQuestion $question
      *
      * @return PollOption
      */
-    public function setQuestion(\Progrupa\PollBundle\Entity\ClosedQuestion $question = null)
+    public function setQuestion(ClosedQuestion $question = null)
     {
         $this->question = $question;
 
@@ -113,11 +142,40 @@ class PollOption
     /**
      * Get question
      *
-     * @return \Progrupa\PollBundle\Entity\ClosedQuestion
+     * @return ClosedQuestion
      */
     public function getQuestion()
     {
         return $this->question;
+    }
+
+    /**
+     *
+     * @param ClosedAnswerOption $option
+     * @return ClosedAnswer
+     */
+    public function addAnswerOption(ClosedAnswerOption $option)
+    {
+        $this->optionAnswers[] = $option;
+
+        return $this;
+    }
+
+    /**
+     *
+     * @param ClosedAnswerOption $option
+     */
+    public function removeAnswerOption(ClosedAnswerOption $option)
+    {
+        $this->optionAnswers->removeElement($option);
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getAnswerOptions()
+    {
+        return $this->optionAnswers;
     }
 
 
@@ -128,6 +186,7 @@ class PollOption
     {
         $this->id = null;
         $this->question = null;
+        $this->optionAnswers = null;
 
         return $this;
     }

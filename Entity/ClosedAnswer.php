@@ -21,39 +21,24 @@ class ClosedAnswer extends PollAnswer
     private $options;
 
     /**
+     * @var Collection
+     *
+     * @ORM\OneToMany(targetEntity="ClosedAnswerOption", mappedBy="answer", cascade={"persist", "remove"})
+     */
+    private $answerOptions;
+
+    /**
      * Constructor
      */
     public function __construct($options = null)
     {
         if ($options instanceof PollOption) {
-            $options = new ArrayCollection([$options]);
+            //$options = new ArrayCollection([$options]);
         }
 
-        $this->options = $options instanceof Collection ? $options : new \Doctrine\Common\Collections\ArrayCollection();
-    }
+        //$this->options = $options instanceof Collection ? $options : new \Doctrine\Common\Collections\ArrayCollection();
 
-    /**
-     * Add option
-     *
-     * @param PollOption $option
-     *
-     * @return ClosedAnswer
-     */
-    public function addOption(PollOption $option)
-    {
-        $this->options[] = $option;
-
-        return $this;
-    }
-
-    /**
-     * Remove option
-     *
-     * @param PollOption $option
-     */
-    public function removeOption(PollOption $option)
-    {
-        $this->options->removeElement($option);
+        $this->answerOptions = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -61,8 +46,38 @@ class ClosedAnswer extends PollAnswer
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getOptions()
+    public function getOptionsOld()
     {
         return $this->options;
     }
+
+    /**
+     *
+     * @param ClosedAnswerOption $option
+     * @return ClosedAnswer
+     */
+    public function addAnswerOption(ClosedAnswerOption $option)
+    {
+        $this->answerOptions[] = $option;
+
+        return $this;
+    }
+
+    /**
+     *
+     * @param ClosedAnswerOption $option
+     */
+    public function removeAnswerOption(ClosedAnswerOption $option)
+    {
+        $this->answerOptions->removeElement($option);
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getAnswerOptions()
+    {
+        return $this->answerOptions;
+    }
+
 }

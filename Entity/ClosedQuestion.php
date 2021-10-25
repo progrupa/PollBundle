@@ -12,7 +12,7 @@ class ClosedQuestion extends PollQuestion
     const DISCR = 'closed';
 
     /**
-     * @ORM\OneToMany(targetEntity="Progrupa\PollBundle\Entity\PollOption", mappedBy="question")
+     * @ORM\OneToMany(targetEntity="PollOption", mappedBy="question")
      */
     private $options;
     /**
@@ -120,11 +120,11 @@ class ClosedQuestion extends PollQuestion
     /**
      * Add option
      *
-     * @param \Progrupa\PollBundle\Entity\PollOption $option
+     * @param PollOption $option
      *
      * @return ClosedQuestion
      */
-    public function addOption(\Progrupa\PollBundle\Entity\PollOption $option)
+    public function addOption(PollOption $option)
     {
         $this->options[] = $option;
 
@@ -134,9 +134,9 @@ class ClosedQuestion extends PollQuestion
     /**
      * Remove option
      *
-     * @param \Progrupa\PollBundle\Entity\PollOption $option
+     * @param PollOption $option
      */
-    public function removeOption(\Progrupa\PollBundle\Entity\PollOption $option)
+    public function removeOption(PollOption $option)
     {
         $this->options->removeElement($option);
     }

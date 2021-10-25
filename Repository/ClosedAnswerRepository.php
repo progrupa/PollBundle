@@ -12,11 +12,12 @@ class ClosedAnswerRepository extends EntityRepository implements AnswerRepositor
     public function getResultsForQuestion(PollQuestion $question)
     {
         $qb = $this->createQueryBuilder('a')
-            ->select('COUNT(a.id) as cnt, options.id as optionId')
-            ->join('a.options', 'options')
+            ->select('COUNT(a.id) as cnt, option.id as optionId')
+            ->join('a.answerOptions', 'answerOptions')
+            ->join('answerOptions.option', 'option')
             ->where('a.question = :question')
             ->setParameter('question', $question)
-            ->groupBy('options.id')
+            ->groupBy('option.id')
         ;
 
         $result = $qb->getQuery()->getArrayResult();

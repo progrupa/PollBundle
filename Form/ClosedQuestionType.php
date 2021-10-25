@@ -4,6 +4,7 @@ namespace Progrupa\PollBundle\Form;
 
 
 use Progrupa\PollBundle\Entity\ClosedAnswer;
+use Progrupa\PollBundle\Entity\ClosedAnswerOption;
 use Progrupa\PollBundle\Entity\ClosedQuestion;
 use Progrupa\PollBundle\Entity\PollAnswer;
 use Progrupa\PollBundle\Entity\PollOption;
@@ -45,6 +46,22 @@ class ClosedQuestionType extends AbstractType implements PollElement
         ];
     }
 
+    public static function openOptions(PollQuestion $question)
+    {
+        if (! $question instanceof ClosedQuestion) {
+            throw new \InvalidArgumentException("An instance of ClosedQuestion is required for this form element");
+        }
+
+        $options = [];
+        /** @var PollOption $option */
+        foreach ($question->getOptions() as $option) {
+            if ($option->isOpen()) {
+                $options[] = $option->getId();
+            }
+        }
+        return $options;
+    }
+
     public function fromAnswer(PollAnswer $answer)
     {
         if (! $answer instanceof ClosedAnswer) {
@@ -52,9 +69,16 @@ class ClosedQuestionType extends AbstractType implements PollElement
         }
 
         if ($answer->getQuestion()->getMultiple()) {
-            return $answer->getOptions();
+            $options = [];
+            /** @var ClosedAnswerOption $answerOption */
+            foreach ($answer->getAnswerOptions() as $answerOption) {
+                $options[] = $answerOption->getOption();
+            }
+
+            return $options;
         } else {
-            return $answer->getOptions()->count() ? $answer->getOptions()->first() : null;
+
+            return $answer->getAnswerOptions()->count() ? $answer->getAnswerOptions()->first()->getOption() : null;
         }
     }
 }
