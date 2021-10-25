@@ -28,6 +28,11 @@ class ClosedQuestion extends PollQuestion
      * @ORM\Column(type="boolean")
      */
     private $expanded;
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $lastOptionClear;
+
 
     public static function answerClass()
     {
@@ -105,6 +110,22 @@ class ClosedQuestion extends PollQuestion
     public function setScale($scale)
     {
         $this->scale = $scale;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getLastOptionClear()
+    {
+        return $this->lastOptionClear;
+    }
+
+    /**
+     * @param boolean $lastOptionClear
+     */
+    public function setLastOptionClear($lastOptionClear)
+    {
+        $this->lastOptionClear = $lastOptionClear;
     }
 
     /**
