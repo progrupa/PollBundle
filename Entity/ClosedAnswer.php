@@ -46,7 +46,7 @@ class ClosedAnswer extends PollAnswer
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getOptionsOld()
+    public function getOptions()
     {
         return $this->options;
     }
