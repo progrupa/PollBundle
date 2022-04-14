@@ -53,6 +53,7 @@ class Poll
 
     /**
      * @ORM\OneToMany(targetEntity="Progrupa\PollBundle\Entity\PollQuestion", mappedBy="poll")
+     * @ORM\OrderBy({"position" = "ASC"})
      */
     private $questions;
 
