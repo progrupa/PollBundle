@@ -35,14 +35,23 @@ class PollOption
      * @ORM\Column(type="text")
      */
     private $label;
+
     /**
      * @ORM\Column(type="float", nullable=true)
      */
     private $value;
+
     /**
      * @ORM\Column(type="boolean")
      */
     private $open;
+
+    /**
+     * @var integer
+     * @ORM\Column(name="position", type="integer", nullable=false, options={"default":0})
+     */
+    private $position = 0;
+
     /**
      * Constructor
      */
@@ -177,6 +186,22 @@ class PollOption
     public function getAnswerOptions()
     {
         return $this->optionAnswers;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPosition()
+    {
+        return $this->position;
+    }
+
+    /**
+     * @param int $position
+     */
+    public function setPosition($position)
+    {
+        $this->position = $position;
     }
 
 

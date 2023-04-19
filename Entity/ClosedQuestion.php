@@ -13,7 +13,7 @@ class ClosedQuestion extends PollQuestion
 
     /**
      * @ORM\OneToMany(targetEntity="PollOption", mappedBy="question")
-     * @ORM\OrderBy({"id" = "ASC"})
+     * @ORM\OrderBy({"position" = "ASC", "id" = "ASC"})
      */
     private $options;
     /**
