@@ -65,13 +65,13 @@ class Poll
 
     /**
      * @var \DateTime
-     * @ORM\Column(name="created_at", type="datetimetz", nullable=true)
+     * @ORM\Column(name="created_at", type="datetime", nullable=true)
      */
     private $createdAt;
 
     /**
      * @var \DateTime
-     * @ORM\Column(name="modified_at", type="datetimetz", nullable=true)
+     * @ORM\Column(name="modified_at", type="datetime", nullable=true)
      */
     private $modifiedAt;
 
