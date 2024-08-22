@@ -47,6 +47,12 @@ class Poll
 
     /**
      * @var string
+     * @ORM\Column(name="summary", type="text", nullable=true)
+     */
+    private $summary;
+
+    /**
+     * @var string
      * @ORM\Column(type="string", length=64)
      */
     private $state;
@@ -175,6 +181,22 @@ class Poll
     public function setDescription($description)
     {
         $this->description = $description;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSummary()
+    {
+        return $this->summary;
+    }
+
+    /**
+     * @param string $summary
+     */
+    public function setSummary($summary)
+    {
+        $this->summary = $summary;
     }
 
     /**
