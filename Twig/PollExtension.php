@@ -4,8 +4,10 @@ namespace Progrupa\PollBundle\Twig;
 
 use Progrupa\PollBundle\Entity\PollAnswer;
 use Progrupa\PollBundle\Formatter\ResultsFormatter;
+use Twig\Extension\AbstractExtension;
+use Twig\TwigFilter;
 
-class PollExtension extends \Twig_Extension
+class PollExtension extends AbstractExtension
 {
     /** @var ResultsFormatter */
     private $resultsFormatter;
@@ -22,7 +24,7 @@ class PollExtension extends \Twig_Extension
     public function getFilters()
     {
         return [
-            new \Twig_SimpleFilter('pollAnswer', [$this, 'formatAnswer'])
+            new TwigFilter('pollAnswer', [$this, 'formatAnswer'])
         ];
     }
 
