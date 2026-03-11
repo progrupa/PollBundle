@@ -12,7 +12,7 @@ use Progrupa\PollBundle\Entity\PollOption;
 
 use Progrupa\PollBundle\Repository\PollOptionRepository;
 use Progrupa\PollBundle\Service\PollElementResult;
-use Symfony\Component\Translation\TranslatorInterface;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class ClosedFormatter implements PollElementResultFormatter
 {

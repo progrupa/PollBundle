@@ -7,7 +7,7 @@ use Progrupa\PollBundle\Entity\PollAnswer;
 use Progrupa\PollBundle\Entity\YesNoAnswer;
 use Progrupa\PollBundle\Entity\YesNoQuestion;
 use Progrupa\PollBundle\Service\PollElementResult;
-use Symfony\Component\Translation\TranslatorInterface;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class YesNoFormatter implements PollElementResultFormatter
 {
